@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+
+    <constant name="struts.devMode" value="true" />
+	<constant name="struts.ui.theme" value="simple" />
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	<constant name="struts.custom.i18n.resources" value="ApplicationResources" />
+	<constant name="struts.action.excludePattern" value="/webjars/.*,/h2-console/*" />
+	
+    <package name="br.com.soc.sistema" extends="struts-default" strict-method-invocation="false">
+        <action name="*Exames" class="br.com.soc.sistema.action.exame.ExameAction" method="{1}">
+        	<result name="success">/exame/ListarExames.jsp</result>
+            <result name="input">/exame/CadastrarExame.jsp</result>
+            <result name="editar">/exame/EditarExame.jsp</result>
+            <result name="error">erro.jsp</result>
+        	<result name="redirect" type="redirectAction">todosExames</result>
+        </action>
+        <action name="*Funcionarios" class="br.com.soc.sistema.action.funcionario.FuncionarioAction" method="{1}">
+        	<result name="success">/funcionario/ListarFuncionarios.jsp</result>
+            <result name="input">/funcionario/CadastrarFuncionario.jsp</result>
+            <result name="editar">/funcionario/EditarFuncionario.jsp</result>
+            <result name="error">erro.jsp</result>
+        	<result name="redirect" type="redirectAction">todosFuncionarios</result>
+        </action>
+        <action name="*ExamesRealizados" class="br.com.soc.sistema.action.exameRealizado.ExameRealizadoAction" method="{1}">
+        	<result name="success">/examesRealizados/ListarExamesRealizados.jsp</result>
+            <result name="input">/examesRealizados/CadastrarExamesRealizados.jsp</result>
+            <result name="editar">/examesRealizados/EditarExamesRealizados.jsp</result>
+            <result name="error">erro.jsp</result>
+        	<result name="redirect" type="redirectAction">todosExamesRealizados</result>
+        </action>
+    </package>
+
+</struts>
